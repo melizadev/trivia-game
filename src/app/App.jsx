@@ -1,7 +1,9 @@
-import Home from "../features/home/Home";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Game from "../features/game/Game";
-import { useState } from "react";
+import GameOver from "../features/game/GameOver";
+import Home from "../features/home/Home";
+
 function App() {
   const [points, setPoints] = useState(0);
 
@@ -12,6 +14,10 @@ function App() {
         <Route
           path="/trivia-game/game"
           element={<Game setPoints={setPoints} points={points} />}
+        />
+        <Route
+          path="/trivia-game/gameover"
+          element={<GameOver points={points} />}
         />
       </Routes>
     </>

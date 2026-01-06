@@ -15,7 +15,7 @@ const useGame = () => {
       setCount(count - 1);
     }, 1000);
 
-    // Limpiar el timeout si el componente se desmonta o count cambia
+    // Clear the timeout if the component is removed or the account changes
     return () => clearTimeout(timerId);
   }, [count, setStartGame]);
 

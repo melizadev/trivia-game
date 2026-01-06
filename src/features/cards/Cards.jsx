@@ -1,12 +1,13 @@
 import GameOver from "../game/GameOver";
 import useCards from "./useCards";
 import QuestionCard from "./QuestionCard";
+import { useNavigate } from "react-router-dom";
 
 const Cards = ({ setPoints, points }) => {
   const game = useCards({ setPoints, points });
-
+  const navigate = useNavigate();
   if (game.isGameOver) {
-    return <GameOver points={points} />;
+    navigate("/trivia-game/gameover");
   }
 
   return (
