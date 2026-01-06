@@ -7,13 +7,16 @@ const useHome = () => {
   const onPlay = () => {
     setStart(true);
   };
+  const onInstructions = () => {
+    setInstructions((prev) => !prev);
+  };
 
   useEffect(() => {
     if (start) {
       navigate("/trivia-game/game");
     }
   }, [start, navigate]);
-  return { onPlay, setInstructions, instructions };
+  return { onPlay, onInstructions, instructions };
 };
 
 export default useHome;

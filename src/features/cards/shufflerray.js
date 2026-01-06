@@ -18,8 +18,6 @@ export const shuffleArray = (array) => {
         shuffledOptions[j],
         shuffledOptions[i],
       ];
-      console.log("Opciones ANTES:", question.options);
-      console.log("Opciones DESPUÉS:", shuffledOptions);
     }
 
     return {

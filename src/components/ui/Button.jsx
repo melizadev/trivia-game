@@ -3,7 +3,7 @@ const CuteButton = ({ children, onClick }) => {
     <button
       onClick={onClick}
       className={`
-        bg-pink-500 hover:bg-pink-600 
+        bg-pink-600 hover:bg-pink-700 
         font-fredoka
         text-lg
         text-white 

@@ -1,5 +1,5 @@
 import Cards from "../cards/Cards";
-import useGame from "./useGame";
+import useGame from "./hooks/useGame";
 const Game = ({ setPoints, points }) => {
   const { count, startGame } = useGame();
   if (startGame) {

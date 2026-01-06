@@ -1,7 +1,7 @@
-import questions from "../../data/questions";
+import questions from "../../../data/questions";
 import { useEffect, useState } from "react";
-import { shuffleArray } from "./shufflerray";
-
+import { shuffleArray } from "../shufflerray";
+import { useNavigate } from "react-router-dom";
 const useCards = ({ setPoints, points }) => {
   const [remainingQuestions, setRemainingQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -9,21 +9,40 @@ const useCards = ({ setPoints, points }) => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswers, setShowAnswers] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const navigate = useNavigate();
+  const endGame = () => {
+    setShowToast(true);
 
-  // start game shuffle
+    setTimeout(() => {
+      setShowToast(false);
+      navigate("/trivia-game/gameover");
+    }, 2000);
+  };
 
-  useEffect(() => {
+  const startGame = () => {
+    setHitPoints(5);
+    setPoints(0);
+    setIsGameOver(false);
+
     const shuffled = shuffleArray(questions);
     setRemainingQuestions(shuffled);
     setCurrentQuestion(shuffled[0]);
+
+    setSelectedOption(null);
+    setShowAnswers(false);
+  };
+
+  // start game
+  useEffect(() => {
+    startGame();
   }, []);
 
   // Pick next question
   const pickNextQuestion = () => {
     setRemainingQuestions((prev) => {
       if (prev.length <= 1) {
-        setIsGameOver(true);
-        return [];
+        endGame;
       }
 
       const [, ...rest] = prev;
@@ -43,7 +62,7 @@ const useCards = ({ setPoints, points }) => {
 
     if (noHitPoints) {
       setPoints((prev) => prev - 10);
-      setIsGameOver(true);
+      endGame();
       return;
     }
 
@@ -91,6 +110,7 @@ const useCards = ({ setPoints, points }) => {
     selectedOption,
     handleAnswer,
     isGameOver,
+    showToast,
   };
 };
 

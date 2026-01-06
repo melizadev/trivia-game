@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Instructions = ({ setInstructions }) => {
+const Instructions = ({ onInstructions }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -19,8 +19,8 @@ const Instructions = ({ setInstructions }) => {
       </ul>
 
       <button
-        onClick={() => setInstructions(false)}
-        className="mt-4 text-sm text-purple-600 font-semibold"
+        onClick={onInstructions}
+        className="mt-4 text-sm text-purple-600 font-semibold cursor-pointer"
       >
         close
       </button>

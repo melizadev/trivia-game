@@ -11,7 +11,6 @@ const useGameOver = ({ points }) => {
     if (scores.length > 3) scores.pop();
     localStorage.setItem("highScores", JSON.stringify(scores));
     setHighScores(scores);
-    console.log(scores);
   }, [points]);
 
   return { highScores };

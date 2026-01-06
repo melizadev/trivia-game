@@ -1,6 +1,10 @@
-const HighScores = ({ highScores }) => {
+import { motion } from "framer-motion";
+const HighScores = ({ highScores, itemVariants }) => {
   return (
-    <div className="mt-2">
+    <motion.div
+      variants={itemVariants}
+      className="mt-2 w-full flex flex-col items-center justify-center"
+    >
       <h3 className="font-bold text-lg mb-2 text-neutral-700 text-center">
         High Scores
       </h3>
@@ -22,7 +26,7 @@ const HighScores = ({ highScores }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </motion.div>
   );
 };
 
