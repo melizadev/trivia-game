@@ -10,7 +10,7 @@ const useHome = () => {
 
   useEffect(() => {
     if (start) {
-      navigate("/game");
+      navigate("/trivia-game/game");
     }
   }, [start, navigate]);
   return { onPlay, setInstructions, instructions };

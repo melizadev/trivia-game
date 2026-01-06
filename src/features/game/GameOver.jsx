@@ -16,10 +16,10 @@ const GameOver = ({ points }) => {
         <p className="text-neutral-600 text-base">Your Score is {points}</p>
         <div className="flex justify-around items-center w-full">
           <Button>
-            <a href="/game">Play Again</a>
+            <a href="/trivia-game/game">Play Again</a>
           </Button>
           <Button>
-            <a href="/">Go Home</a>
+            <a href="/trivia-game/">Go Home</a>
           </Button>
         </div>
         <HighScores highScores={highScores} />
