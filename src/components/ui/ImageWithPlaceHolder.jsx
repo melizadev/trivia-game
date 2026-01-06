@@ -6,7 +6,7 @@ const ImageWithPlaceholder = ({ lowSrc, src, alt }) => {
 
   return (
     <div className="relative w-full h-full rounded-full overflow-hidden">
-      {/* Placeholder (se va lento) */}
+      {/* Placeholder (it goes slowly) */}
       <motion.img
         src={lowSrc}
         alt={alt}
@@ -15,8 +15,7 @@ const ImageWithPlaceholder = ({ lowSrc, src, alt }) => {
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="absolute inset-0 w-full h-full object-cover blur-md"
       />
-
-      {/* Imagen real (entra suave) */}
+      {/* Actual image (enters smoothly) */}
       <motion.img
         src={src}
         alt={alt}
@@ -28,7 +27,7 @@ const ImageWithPlaceholder = ({ lowSrc, src, alt }) => {
         }}
         transition={{
           duration: 1,
-          ease: [0.22, 1, 0.36, 1], // easeOutExpo-like
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="w-full h-full object-cover"
       />
